@@ -1,0 +1,86 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+scalar smallint
+scalar timestamptz
+scalar uuid
+
+type Thing {
+  amount: smallint
+  created: timestamptz!
+  id: uuid!
+  name: String
+}
+
+type Query {
+  thing(limit: Int, offset:Int, where: things_bool_exp): [Thing!]!
+}
+
+input things_bool_exp {
+  _and: [things_bool_exp!]
+  _not: things_bool_exp
+  _or: [things_bool_exp!]
+  amount: smallint_comparison_exp
+  created: timestamptz_comparison_exp
+  id: uuid_comparison_exp
+  name: String_comparison_exp
+}
+
+input smallint_comparison_exp {
+  _eq: smallint
+  _gt: smallint
+  _gte: smallint
+  _in: [smallint!]
+  _is_null: Boolean
+  _lt: smallint
+  _lte: smallint
+  _neq: smallint
+  _nin: [smallint!]
+}
+
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+  _ilike: String
+  _in: [String!]
+  _iregex: String
+  _is_null: Boolean
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  _nilike: String
+  _nin: [String!]
+  _niregex: String
+  _nlike: String
+  _nregex: String
+  _nsimilar: String
+  _regex: String
+  _similar: String
+}
+
+input uuid_comparison_exp {
+  _eq: uuid
+  _gt: uuid
+  _gte: uuid
+  _in: [uuid!]
+  _is_null: Boolean
+  _lt: uuid
+  _lte: uuid
+  _neq: uuid
+  _nin: [uuid!]
+}
+
+input timestamptz_comparison_exp {
+  _eq: timestamptz
+  _gt: timestamptz
+  _gte: timestamptz
+  _in: [timestamptz!]
+  _is_null: Boolean
+  _lt: timestamptz
+  _lte: timestamptz
+  _neq: timestamptz
+  _nin: [timestamptz!]
+}
