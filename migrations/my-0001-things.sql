@@ -2,6 +2,7 @@ CREATE TABLE `things` (
   `id` char(36) NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000',
   `name` varchar(16) DEFAULT NULL,
   `amount` smallint DEFAULT '0',
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
