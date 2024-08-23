@@ -27,3 +27,24 @@ go run github.com/99designs/gqlgen generate
 ```
 4. write gorm based code on graph/query 
 5. run server `go run server.go`
+
+## graphql
+```
+=== query ===
+query($lm: Int, $wh: things_bool_exp) {
+  thing(limit:$lm,where:$wh){
+    id
+    name
+    amount
+    created
+  }
+}
+=== variables ===
+{
+  "lm": 1, 
+  "wh": {
+    "name": {"_like": "838%"},
+    "amount": {"_gt": 10}
+  }
+}
+```
