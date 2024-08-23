@@ -10,7 +10,7 @@ flowchart LR
     gqlthing[Thing GQL]
 
     gqlhasura --> |metadata| dbhasura
-    gqlhasura --> |trollies| dbdata
+    gqlhasura --> |trollies| dbhasura
     gqlhasura --> |things| gqlthing
     gqlthing --> dbdata
 ```
