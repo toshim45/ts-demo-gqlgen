@@ -1,5 +1,20 @@
 # ts-demo-gqlgen
 
+## Schema
+
+```mermaid
+flowchart LR
+    dbhasura[(PgSQL)]
+    dbdata[(MySQL)]
+    gqlhasura[Hasura]
+    gqlthing[Thing GQL]
+
+    gqlhasura --> |metadata| dbhasura
+    gqlhasura --> |trollies| dbdata
+    gqlhasura --> |things| gqlthing
+    gqlthing --> dbdata
+```
+
 ## walkthrough
 1. fetch schema from original hasura using `@apollo/rover` 
 ```
