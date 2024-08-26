@@ -27,6 +27,12 @@ func ResolveThing(limit, offset *int, where *model.ThingsBoolExp) ([]*model.Thin
 	}
 
 	if where != nil {
+		if where.ID != nil {
+			if where.ID.Eq != nil {
+				db = db.Where("id = ?", *where.ID.Eq)
+			}
+		}
+
 		if where.Name != nil {
 			if where.Name.Eq != nil {
 				db = db.Where("name = ?", *where.Name.Eq)

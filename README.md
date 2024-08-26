@@ -28,7 +28,18 @@ go run github.com/99designs/gqlgen generate
 4. write gorm based code on graph/query 
 5. run server `go run server.go`
 
+## hasura 2.41
+### cli
+
+download https://github.com/hasura/graphql-engine/releases/tag/v2.41.0
+
+```
+hasura metadata export --metadata-database-url=postgres://postgres:root@host.docker.internal:5432/hasura_2_41 --database-url=postgres://postgres:root@host.docker.internal:5432/trial
+```
+
 ## graphql
+
+### qglgen-query
 ```
 === query ===
 query($lm: Int, $wh: things_bool_exp) {
@@ -48,3 +59,6 @@ query($lm: Int, $wh: things_bool_exp) {
   }
 }
 ```
+
+### hasura-query
+
